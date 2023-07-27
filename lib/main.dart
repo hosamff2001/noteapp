@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:noteapp/constans.dart';
-import 'package:noteapp/core/utliz/routers.dart';
+
+
+import 'constans.dart';
+import 'core/utliz/routers.dart';
+import 'featchers/home/data/model/note_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox(kNoteBox);
+  Hive.registerAdapter(NoteModelAdapter());
   runApp(const MyApp());
 }
 

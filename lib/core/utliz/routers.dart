@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
-import 'package:noteapp/featchers/home/view/note_edit_view.dart';
 
-import '../../featchers/home/view/home_view.dart';
+import '../../featchers/home/presentation/view/home_view.dart';
+import '../../featchers/home/presentation/view/note_edit_view.dart';
 
 abstract class AppRouter {
   static String keditview = "/edit";

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/custom_bootomstet.dart';
+import '../../../../core/widgets/custom_bootomstet.dart';
 import 'widgets/homeviewbody.dart';
 
 class HomeNoteView extends StatelessWidget {

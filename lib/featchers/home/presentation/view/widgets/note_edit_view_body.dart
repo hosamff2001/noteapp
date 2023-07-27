@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/custom_textfiled.dart';
+import '../../../../../core/widgets/custom_textfiled.dart';
 
 class NoteEditViewBody extends StatelessWidget {
   const NoteEditViewBody({super.key});

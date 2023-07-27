@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utliz/stayles.dart';
-import '../../../../core/widgets/custom_icon.dart';
+import '../../../../../core/utliz/stayles.dart';
+import '../../../../../core/widgets/custom_icon.dart';
 
 class HomeNoteViewbodyAppBar extends StatelessWidget {
   const HomeNoteViewbodyAppBar({super.key});

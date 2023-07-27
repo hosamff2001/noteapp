@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utliz/stayles.dart';
+import '../../../../../core/utliz/stayles.dart';
 
 class NoteCardItem extends StatelessWidget {
   const NoteCardItem({super.key});
