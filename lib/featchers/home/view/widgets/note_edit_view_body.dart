@@ -11,11 +11,11 @@ class NoteEditViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 8),
       child: Column(
         children: [
-          CustomTextFiled(hint: "title"),
+          CustomTextFormFiled(hint: "title"),
           SizedBox(
             height: 14,
           ),
-          CustomTextFiled(
+          CustomTextFormFiled(
             hint: "content",
             maxline: 5,
           )
