@@ -8,14 +8,14 @@ class HomeNoteViewbodyAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
           children: [
-            Text(
+            const Text(
               "Note",
               style: Styles.textStyle24,
             ),
-            Spacer(),
-            CustomIcon(),
+            const Spacer(),
+            CustomIcon(onTap: (){}),
           ],
         );
   }

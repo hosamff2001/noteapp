@@ -16,7 +16,7 @@ class HomeNoteView extends StatelessWidget {
                 BeveledRectangleBorder(borderRadius: BorderRadius.circular(8)),
             context: context,
             builder: (context) {
-              return CustomBottomShet();
+              return const CustomBottomShet();
             },
           );
         },

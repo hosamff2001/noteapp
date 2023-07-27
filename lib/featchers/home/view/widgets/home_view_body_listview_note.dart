@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:noteapp/core/utliz/routers.dart';
 import 'package:noteapp/featchers/home/view/widgets/home_view_body_noteitem.dart';
 
 class NoteListView extends StatelessWidget {
@@ -9,7 +11,11 @@ class NoteListView extends StatelessWidget {
     return ListView.builder(
       itemCount: 7,
       itemBuilder: (context, index) {
-        return const NoteCardItem();
+        return InkWell(
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.keditview);
+            },
+            child: const NoteCardItem());
       },
     );
   }
