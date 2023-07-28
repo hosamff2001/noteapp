@@ -4,6 +4,7 @@ import '../../constans.dart';
 import '../../featchers/home/data/model/note_model.dart';
 import '../../featchers/home/presentation/manger/add_note_cubit/add_note_cubit.dart';
 import '../utliz/stayles.dart';
+import 'custom_Listview_of_colors.dart';
 import 'custom_textfiled.dart';
 import 'custombutton.dart';
 
@@ -78,32 +79,5 @@ class _AddNoteFormState extends State<AddNoteForm> {
   }
 }
 
-class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
-      child: CircleAvatar(
-        backgroundColor: Colors.lightGreen,
-        radius: 24,
-      ),
-    );
-  }
-}
 
-class ListViewColors extends StatelessWidget {
-  const ListViewColors({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        height: 48,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 4,
-          itemBuilder: (context, index) => const ColorItem(),
-        ));
-  }
-}
