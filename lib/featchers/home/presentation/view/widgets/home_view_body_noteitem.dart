@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utliz/stayles.dart';
+import '../../../data/model/note_model.dart';
 
 class NoteCardItem extends StatelessWidget {
-  const NoteCardItem({super.key});
-
+  const NoteCardItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,7 +13,7 @@ class NoteCardItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 7, bottom: 17, right: 16, left: 8),
         decoration: BoxDecoration(
-            color: const Color(0xffffcc80), borderRadius: BorderRadius.circular(12)),
+            color: Color(note.color), borderRadius: BorderRadius.circular(12)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -24,20 +25,20 @@ class NoteCardItem extends StatelessWidget {
                     color: Colors.black,
                   )),
               title: Text(
-                "Flutter Tips",
+                note.title,
                 style: Styles.textStyle18.copyWith(color: Colors.black),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  "Build Your Note ",
+                  note.substitle,
                   style: Styles.textStyle14
                       .copyWith(color: Colors.black.withOpacity(0.4)),
                 ),
               ),
             ),
             Text(
-              "12 May /2023",
+              note.date,
               style: Styles.textStyle14.copyWith(color: Colors.black),
             )
           ],

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-
+import 'package:noteapp/featchers/home/presentation/manger/notes_cuibt/notes_cubit.dart';
 
 import 'constans.dart';
 import 'core/utliz/routers.dart';
 import 'core/utliz/serveslocated.dart';
 import 'core/utliz/simpleblocobserver.dart';
 import 'featchers/home/data/model/note_model.dart';
+import 'featchers/home/data/repo/note_repoimpl.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +25,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-        routerConfig: AppRouter.router,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark());
+    return BlocProvider(
+      create: (context) => NotesCubit(getIt.get<NoteRepoImpl>())..loadnotes(),
+      child: MaterialApp.router(
+          routerConfig: AppRouter.router,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData.dark()),
+    );
   }
 }

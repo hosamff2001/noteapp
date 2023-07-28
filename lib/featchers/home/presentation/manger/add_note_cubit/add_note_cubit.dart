@@ -16,7 +16,7 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     emit(AddNoteLoading());
     try {
       noterepo.addnotetohive(note: note);
-      // emit(AddNoteSuccess());
+      emit(AddNoteSuccess());
     } on Exception catch (e) {
       emit(AddNoteError(e.toString()));
     }

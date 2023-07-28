@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import '../../featchers/home/presentation/manger/cubit/add_note_cubit.dart';
+import 'package:noteapp/featchers/home/presentation/manger/notes_cuibt/notes_cubit.dart';
+import '../../featchers/home/presentation/manger/add_note_cubit/add_note_cubit.dart';
 import 'custom_note_form.dart';
 
-class CustomBottomShet extends StatelessWidget {
-  const CustomBottomShet({super.key});
+class CustomBottomSheet extends StatelessWidget {
+  const CustomBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,15 @@ class CustomBottomShet extends StatelessWidget {
             if (state is AddNoteLoading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state is AddNoteSuccess) {
-              GoRouter.of(context).pop();
+              FocusScopeNode currentFocus = FocusScope.of(context);
+
+              if (!currentFocus.hasPrimaryFocus) {
+                currentFocus.unfocus();
+              }
+              BlocProvider.of<NotesCubit>(context).loadnotes();
+              if (Navigator.of(context).canPop()) {
+                Navigator.of(context).pop();
+              }
             } else if (state is AddNoteError) {
               debugPrint("faild in ${state.errormessage}");
             }
