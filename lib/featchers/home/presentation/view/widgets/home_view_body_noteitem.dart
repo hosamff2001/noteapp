@@ -19,7 +19,9 @@ class NoteCardItem extends StatelessWidget {
           children: [
             ListTile(
               trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    note.delete();
+                  },
                   icon: const Icon(
                     Icons.delete,
                     color: Colors.black,
