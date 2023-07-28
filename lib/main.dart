@@ -12,10 +12,10 @@ import 'featchers/home/data/model/note_model.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await Hive.openBox(kNoteBox);
-  setupServiceLocator();
   Bloc.observer = SimpleBlocObserver();
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNoteBox);
+  setupServiceLocator();
   runApp(const MyApp());
 }
 

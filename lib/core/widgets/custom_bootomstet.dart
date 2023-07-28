@@ -10,7 +10,11 @@ class CustomBottomShet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+      padding: EdgeInsets.only(
+          left: 16.0,
+          right: 16,
+          top: 12,
+          bottom: MediaQuery.viewInsetsOf(context).bottom + 12),
       child: SingleChildScrollView(
         child: BlocBuilder<AddNoteCubit, AddNoteState>(
           builder: (context, state) {
@@ -19,7 +23,7 @@ class CustomBottomShet extends StatelessWidget {
             } else if (state is AddNoteSuccess) {
               GoRouter.of(context).pop();
             } else if (state is AddNoteError) {
-              print("faild in ${state.errormessage}");
+              debugPrint("faild in ${state.errormessage}");
             }
 
             return const AddNoteForm();

@@ -16,6 +16,7 @@ class HomeNoteView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape:
                 BeveledRectangleBorder(borderRadius: BorderRadius.circular(8)),
             context: context,
