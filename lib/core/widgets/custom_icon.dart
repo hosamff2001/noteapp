@@ -8,7 +8,7 @@ class CustomIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.1),

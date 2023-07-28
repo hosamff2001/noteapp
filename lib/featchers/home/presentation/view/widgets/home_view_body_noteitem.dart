@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utliz/stayles.dart';
 import '../../../data/model/note_model.dart';
+import '../../manger/notes_cuibt/notes_cubit.dart';
 
 class NoteCardItem extends StatelessWidget {
   const NoteCardItem({super.key, required this.note});
@@ -21,6 +23,7 @@ class NoteCardItem extends StatelessWidget {
               trailing: IconButton(
                   onPressed: () {
                     note.delete();
+                    BlocProvider.of<NotesCubit>(context).loadnotes();
                   },
                   icon: const Icon(
                     Icons.delete,
@@ -33,7 +36,7 @@ class NoteCardItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  note.substitle,
+                  note.subtitle,
                   style: Styles.textStyle14
                       .copyWith(color: Colors.black.withOpacity(0.4)),
                 ),

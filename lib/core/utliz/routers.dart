@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 
+import '../../featchers/home/data/model/note_model.dart';
 import '../../featchers/home/presentation/view/home_view.dart';
 import '../../featchers/home/presentation/view/note_edit_view.dart';
 
@@ -20,8 +21,9 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: keditview,
+        
         builder: (BuildContext context, GoRouterState state) {
-          return const NoteEditView();
+          return  NoteEditView(note:state.extra as NoteModel);
         },
       ),
     ],

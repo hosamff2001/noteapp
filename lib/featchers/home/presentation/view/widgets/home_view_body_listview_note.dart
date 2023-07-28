@@ -18,7 +18,7 @@ class NoteListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.keditview);
+                    GoRouter.of(context).push(AppRouter.keditview,extra: state.notes[index]);
                   },
                   child:  NoteCardItem(note:state.notes[index]));
             });
