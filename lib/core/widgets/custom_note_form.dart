@@ -47,7 +47,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxline: 5,
           ),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height * 0.1,
+            height: MediaQuery.sizeOf(context).height * 0.05,
+          ),
+          const ListViewColors(),
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height * 0.02,
           ),
           CustomButton(
             onPressed: () {
@@ -56,7 +60,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 NoteModel note = NoteModel(
                     color: Colors.blue.value,
                     title: title!,
-                    substitle: subtitle!,
+                    subtitle: subtitle!,
                     date: DateTime.now().toString().split(" ")[0]);
                 BlocProvider.of<AddNoteCubit>(context).addnote(note);
               } else {
@@ -71,5 +75,35 @@ class _AddNoteFormState extends State<AddNoteForm> {
         ],
       ),
     );
+  }
+}
+
+class ColorItem extends StatelessWidget {
+  const ColorItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      child: CircleAvatar(
+        backgroundColor: Colors.lightGreen,
+        radius: 24,
+      ),
+    );
+  }
+}
+
+class ListViewColors extends StatelessWidget {
+  const ListViewColors({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 48,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 4,
+          itemBuilder: (context, index) => const ColorItem(),
+        ));
   }
 }
