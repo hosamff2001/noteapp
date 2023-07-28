@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:noteapp/featchers/home/presentation/manger/add_note_cubit/add_note_cubit.dart';
 
 import 'custom_Color.dart';
 
@@ -28,6 +30,8 @@ class _ListViewColorsState extends State<ListViewColors> {
           itemBuilder: (context, index) => InkWell(
             onTap: () {
               currentindex = index;
+              BlocProvider.of<AddNoteCubit>(context).colorpicket =
+                  colors[currentindex];
               setState(() {});
             },
             child: ColorItem(
