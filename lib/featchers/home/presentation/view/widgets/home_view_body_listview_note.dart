@@ -12,15 +12,18 @@ class NoteListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(builder: (context, state) {
-      if (state is NotesSuccess) {
+      if (state is NotesSuccess || state is NotesChangeSearchBar) {
         return ListView.builder(
-            itemCount: state.notes.length,
+            itemCount: BlocProvider.of<NotesCubit>(context).notes.length,
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.keditview,extra: state.notes[index]);
+                    GoRouter.of(context).push(AppRouter.keditview,
+                        extra:
+                            BlocProvider.of<NotesCubit>(context).notes[index]);
                   },
-                  child:  NoteCardItem(note:state.notes[index]));
+                  child: NoteCardItem(
+                      note: BlocProvider.of<NotesCubit>(context).notes[index]));
             });
       } else {
         return const Center(

@@ -10,11 +10,28 @@ part 'notes_state.dart';
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit(this.noterepo) : super(NotesInitial());
   final NoteRepo noterepo;
+  bool issearch = false;
+  List<NoteModel> notes=[];
 
   void loadnotes() {
     try {
-      List<NoteModel> notes =noterepo.loadnotefromhive();
-      emit(NotesSuccess(notes));
+       notes = noterepo.loadnotefromhive();
+      emit(NotesSuccess());
+    } catch (e) {
+      emit(NotesError(e.toString()));
+    }
+  }
+
+  void changetosearch() {
+    issearch = !issearch;
+    emit(NotesChangeSearchBar());
+  }
+
+   void search(String title) {
+  
+    try {
+       notes = noterepo.searchinhive(title: title);
+      emit(NotesSuccess());
     } catch (e) {
       emit(NotesError(e.toString()));
     }

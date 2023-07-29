@@ -8,7 +8,7 @@ class NoteRepoImpl implements NoteRepo {
   @override
   void addnotetohive({required NoteModel note}) async {
     var notebox = Hive.box<NoteModel>(kNoteBox);
-    
+
     await notebox.add(note);
   }
 
@@ -18,7 +18,13 @@ class NoteRepoImpl implements NoteRepo {
   @override
   List<NoteModel> loadnotefromhive() {
     var notebox = Hive.box<NoteModel>(kNoteBox);
-    
+
     return notebox.values.toList();
+  }
+
+  @override
+  List<NoteModel> searchinhive({required String title}) {
+    var notebox = Hive.box<NoteModel>(kNoteBox);
+    return notebox.values.where((element) => element.title.contains(title) ).toList();
   }
 }
